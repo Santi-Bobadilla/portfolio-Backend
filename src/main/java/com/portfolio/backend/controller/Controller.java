@@ -6,7 +6,9 @@
 package com.portfolio.backend.controller;
 
 import com.portfolio.backend.model.Persona;
+import com.portfolio.backend.model.User;
 import com.portfolio.backend.service.IPersonaService;
+import com.portfolio.backend.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,5 +49,29 @@ public class Controller {
     @PutMapping("/editar/{id}")
     public void editarPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
+    }
+    
+    @Autowired
+    private IUserService userServ;
+    
+    @PostMapping("/new/user")
+    public void crearUser(@RequestBody User user){
+        userServ.crearUsuario(user);
+    }
+    
+    @GetMapping("/ver/users")
+    @ResponseBody
+    public List<User> verUsuarios(){
+        return userServ.verUsuarios();
+    }
+    
+    @DeleteMapping("/deleteUser/{id}")
+    public void borrarUsuario(@PathVariable Long id){
+        userServ.borrarUsuario(id);
+    }
+    
+    @PutMapping("/editarUser/{id}")
+    public void editarUsuario(@RequestBody User user){
+        userServ.crearUsuario(user);
     }
 }
