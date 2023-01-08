@@ -68,6 +68,12 @@
 	  <artifactId>jakarta.persistence-api</artifactId>
 	  <version>3.1.0</version>
 	 </dependency>
+	 <dependency>
+	  <groupId>org.apache.maven</groupId>
+	  <artifactId>maven</artifactId>
+	  <version>3.2.5</version>
+	  <type>pom</type>
+	 </dependency>
 	</dependencies>
 
 	<build>

@@ -5,9 +5,15 @@
  */
 package com.portfolio.backend.controller;
 
+import com.portfolio.backend.model.Educacion;
+import com.portfolio.backend.model.Experiencia;
 import com.portfolio.backend.model.Persona;
+import com.portfolio.backend.model.Proyecto;
 import com.portfolio.backend.model.User;
+import com.portfolio.backend.service.IEducacionService;
+import com.portfolio.backend.service.IExperienciaService;
 import com.portfolio.backend.service.IPersonaService;
+import com.portfolio.backend.service.IProyectoService;
 import com.portfolio.backend.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,52 +32,126 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 
+
 public class Controller {
+    
+    // Persona
     @Autowired
     private IPersonaService persoServ;
     
-    @PostMapping("/new/persona")
+    @PostMapping("/api/new/persona")
     public void crearPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
     }
     
-    @GetMapping("/ver/personas")
+    @GetMapping("/api/ver/personas")
     @ResponseBody
     public List<Persona> verPersonas(){
         return persoServ.verPersonas();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/api/delete/{id}")
     public void borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
     }
     
-    @PutMapping("/editar/{id}")
+    @PutMapping("/api/editar/{id}")
     public void editarPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
     }
     
+    // Usuario
     @Autowired
     private IUserService userServ;
     
-    @PostMapping("/new/user")
+    @PostMapping("/api/new/user")
     public void crearUser(@RequestBody User user){
         userServ.crearUsuario(user);
     }
     
-    @GetMapping("/ver/users")
+    @GetMapping("/api/ver/users")
     @ResponseBody
     public List<User> verUsuarios(){
         return userServ.verUsuarios();
     }
     
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/api/deleteUser/{id}")
     public void borrarUsuario(@PathVariable Long id){
         userServ.borrarUsuario(id);
     }
     
-    @PutMapping("/editarUser/{id}")
+    @PutMapping("/api/editarUser/{id}")
     public void editarUsuario(@RequestBody User user){
         userServ.crearUsuario(user);
     }
+    
+    // Educacion
+    @Autowired
+    private IEducacionService eduServ;
+    
+    @GetMapping("/api/ver/edu")
+    @ResponseBody
+    public List<Educacion> verEducacion() {
+        return eduServ.verEducacion();
+    }
+    
+    @PostMapping("/api/new/edu")
+    public void crearEducacion(@RequestBody Educacion edu) {
+        eduServ.crearEducacion(edu);
+    }
+    
+    @DeleteMapping("/api/deleteEdu/{id}")
+    public void borrarEducacion(@PathVariable Long id) {
+        eduServ.borrarEducacion(id);
+    }
+   
+    // Experiencia
+    
+    @Autowired
+    private IExperienciaService expServ;
+
+    @GetMapping("/api/ver/exp")
+    @ResponseBody
+    public List<Experiencia> verExperiencia() {
+        return expServ.verExperiencia();
+    }
+    
+    @PostMapping("/api/new/exp")
+    public void creaExperiencia(@RequestBody Experiencia exp) {
+        expServ.creaExperiencia(exp);
+    }
+
+    @DeleteMapping("/api/deleteExp/{id}")
+    public void borrarExperiencia(@PathVariable Long id) {
+        expServ.borrarExperiencia(id);
+    }
+    
+    // Proyecto
+    
+    @Autowired
+    private IProyectoService proyServ;
+
+    @GetMapping("/api/ver/proy")
+    @ResponseBody
+    public List<Proyecto> verProyecto() {
+        return proyServ.verProyecto();
+    }
+
+     @PostMapping("/api/new/proy")
+    public void crearProyecto(Proyecto proy) {
+        proyServ.crearProyecto(proy);
+    }
+    
+    @DeleteMapping("/api/deleteProy/{id}")
+    public void borrarProyecto(Long id) {
+        proyServ.borrarProyecto(id);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
