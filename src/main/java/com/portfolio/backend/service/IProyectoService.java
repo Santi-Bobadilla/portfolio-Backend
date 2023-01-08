@@ -15,4 +15,5 @@ public interface IProyectoService{
     public List<Proyecto> verProyecto();
     public void crearProyecto(Proyecto proy);
     public void borrarProyecto(Long id);
+    public void editarProyecto(Proyecto proy);
 }

@@ -35,7 +35,11 @@ public class ProyectoService implements IProyectoService {
     public void borrarProyecto(Long id) {
         proyRepo.deleteById(id);
     }
-    
-    
+
+    @Override
+    public void editarProyecto(Proyecto proy) {
+        proyRepo.findById(proy.getId()).orElse(null);
+        proyRepo.save(proy);
+    }    
     
 }

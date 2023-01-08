@@ -36,8 +36,9 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
-    public Persona buscarPersona(Long id) {
-        return persRepo.findById(id).orElse(null);
+    public void editarPersona(Persona pers) {
+        persRepo.findById(pers.getId()).orElse(null);
+        persRepo.save(pers);
     }
     
 }

@@ -57,7 +57,7 @@ public class Controller {
     
     @PutMapping("/api/editar/{id}")
     public void editarPersona(@RequestBody Persona pers){
-        persoServ.crearPersona(pers);
+        persoServ.editarPersona(pers);
     }
     
     // Usuario
@@ -82,7 +82,7 @@ public class Controller {
     
     @PutMapping("/api/editarUser/{id}")
     public void editarUsuario(@RequestBody User user){
-        userServ.crearUsuario(user);
+        userServ.editarUsuario(user);
     }
     
     // Educacion
@@ -104,6 +104,11 @@ public class Controller {
     public void borrarEducacion(@PathVariable Long id) {
         eduServ.borrarEducacion(id);
     }
+
+    @PutMapping("/api/editarEdu/{id}")
+    public void editarEducacion(Educacion edu) {
+        eduServ.editarEducacion(edu);
+    }    
    
     // Experiencia
     
@@ -125,7 +130,12 @@ public class Controller {
     public void borrarExperiencia(@PathVariable Long id) {
         expServ.borrarExperiencia(id);
     }
-    
+
+    @PutMapping("/api/editarExp/{id}")
+    public void editarExperiencia(Experiencia exp) {
+        expServ.editarExperiencia(exp);
+    }
+        
     // Proyecto
     
     @Autowired
@@ -145,6 +155,11 @@ public class Controller {
     @DeleteMapping("/api/deleteProy/{id}")
     public void borrarProyecto(Long id) {
         proyServ.borrarProyecto(id);
+    }
+
+    @PutMapping("/api/editarProy/{id}")
+    public void editarProyecto(Proyecto proy) {
+        proyServ.editarProyecto(proy);
     }
     
     

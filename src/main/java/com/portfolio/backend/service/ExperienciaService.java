@@ -35,6 +35,12 @@ public class ExperienciaService implements IExperienciaService{
     public void borrarExperiencia(Long id) {
         expRepo.deleteById(id);
     }
+
+    @Override
+    public void editarExperiencia(Experiencia exp) {
+        expRepo.findById(exp.getId()).orElse(null);
+        expRepo.save(exp);
+    }
     
     
         

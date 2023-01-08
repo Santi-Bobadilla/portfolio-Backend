@@ -35,8 +35,9 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public User buscarUsuario(Long id) {
-        return userRepo.findById(id).orElse(null);
+    public void editarUsuario(User user) {
+        userRepo.findById(user.getId()).orElse(null);
+        userRepo.save(user);
     }
     
 }
