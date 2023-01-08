@@ -9,11 +9,13 @@ import com.portfolio.backend.model.Educacion;
 import com.portfolio.backend.model.Experiencia;
 import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.model.Proyecto;
+import com.portfolio.backend.model.Skill;
 import com.portfolio.backend.model.User;
 import com.portfolio.backend.service.IEducacionService;
 import com.portfolio.backend.service.IExperienciaService;
 import com.portfolio.backend.service.IPersonaService;
 import com.portfolio.backend.service.IProyectoService;
+import com.portfolio.backend.service.ISkillService;
 import com.portfolio.backend.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,7 +108,7 @@ public class Controller {
     }
 
     @PutMapping("/api/editarEdu/{id}")
-    public void editarEducacion(Educacion edu) {
+    public void editarEducacion(@RequestBody Educacion edu) {
         eduServ.editarEducacion(edu);
     }    
    
@@ -132,7 +134,7 @@ public class Controller {
     }
 
     @PutMapping("/api/editarExp/{id}")
-    public void editarExperiencia(Experiencia exp) {
+    public void editarExperiencia(@RequestBody Experiencia exp) {
         expServ.editarExperiencia(exp);
     }
         
@@ -147,26 +149,47 @@ public class Controller {
         return proyServ.verProyecto();
     }
 
-     @PostMapping("/api/new/proy")
-    public void crearProyecto(Proyecto proy) {
+    @PostMapping("/api/new/proy")
+    public void crearProyecto(@RequestBody Proyecto proy) {
         proyServ.crearProyecto(proy);
     }
     
     @DeleteMapping("/api/deleteProy/{id}")
-    public void borrarProyecto(Long id) {
+    public void borrarProyecto(@PathVariable Long id) {
         proyServ.borrarProyecto(id);
     }
 
     @PutMapping("/api/editarProy/{id}")
-    public void editarProyecto(Proyecto proy) {
+    public void editarProyecto(@RequestBody Proyecto proy) {
         proyServ.editarProyecto(proy);
     }
     
+    // Skill
     
+    @Autowired
+    private ISkillService skillServ;
+
+    @GetMapping("/api/ver/skill")
+    @ResponseBody
+    public List<Skill> verSkill() {
+        return skillServ.verSkill();
+    }
+
+    @PostMapping("/api/new/skill")
+    public void crearSkill(@RequestBody Skill skill) {
+        skillServ.crearSkill(skill);
+    }
+
+    @DeleteMapping("/api/deleteSkill/{id}")
+    public void borrarSkill(@PathVariable Long id) {
+        skillServ.borrarSkill(id);
+    }
+
+    @PutMapping("/api/editarSkill/{id}")
+    public void editarSkill(@RequestBody Skill skill) {
+        skillServ.editarSkill(skill);
+    }
     
-    
-    
-    
-    
+        
     
 }

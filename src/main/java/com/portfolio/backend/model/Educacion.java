@@ -24,30 +24,30 @@ import lombok.Setter;
 public class Educacion {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
     private String nombre;
     private Long id_condicion;
-    private String fechaInicio;
-    private String fechaFin;
-    private String telefono;
+    private String fecha_inicio;
+    private String fecha_fin;
     private String certificacion;
     private Long id_persona;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String nombre, Long id_condicion, String fechaInicio, String fechaFin, String telefono, String certificacion, Long id_persona) {
+    public Educacion(Long id, String nombre, Long id_condicion, String fecha_inicio, String fecha_fin, String certificacion, Long id_persona) {
         this.id = id;
         this.nombre = nombre;
         this.id_condicion = id_condicion;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.telefono = telefono;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
         this.certificacion = certificacion;
         this.id_persona = id_persona;
     }
+
+    
     
     
     

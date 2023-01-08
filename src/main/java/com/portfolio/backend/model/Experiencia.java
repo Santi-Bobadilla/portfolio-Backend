@@ -24,13 +24,13 @@ import lombok.Setter;
 public class Experiencia {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
     private String nombre;
-    private byte esTrabajoActual;
-    private String fechaInicio;
-    private String fechaFin;
+    private byte es_trabajo_actual;
+    private String fecha_inicio;
+    private String fecha_fin;
     private String descripcion;
     private Long id_persona;
     private int id_tipo_empleo;
@@ -38,17 +38,15 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String nombre, byte esTrabajoActual, String fechaInicio, String fechaFin, String descripcion, Long id_persona, int id_tipo_empleo) {
+    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String fecha_inicio, String fecha_fin, String descripcion, Long id_persona, int id_tipo_empleo) {
         this.id = id;
         this.nombre = nombre;
-        this.esTrabajoActual = esTrabajoActual;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.es_trabajo_actual = es_trabajo_actual;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
         this.descripcion = descripcion;
         this.id_persona = id_persona;
         this.id_tipo_empleo = id_tipo_empleo;
     }
-
-    
     
 }

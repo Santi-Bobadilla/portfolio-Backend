@@ -20,34 +20,31 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-@Table(name="proyecto")
+@Table(name="skill")
 
-public class Proyecto {
+public class Skill {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
     private String nombre;
-    private String link;
-    private String fecha_inicio;
-    private String fecha_fin;
-    private String descripcion;
-    private String url_image;
+    private Long id_condicion;
+    private int porcentaje;
+    private int id_tipo_skill;
     private Long id_persona;
 
-    public Proyecto() {
+    public Skill() {
     }
 
-    public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Long id_persona) {
+    public Skill(Long id, String nombre, Long id_condicion, int porcentaje, int id_tipo_skill, Long id_persona) {
         this.id = id;
         this.nombre = nombre;
-        this.link = link;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.descripcion = descripcion;
-        this.url_image = url_image;
+        this.id_condicion = id_condicion;
+        this.porcentaje = porcentaje;
+        this.id_tipo_skill = id_tipo_skill;
         this.id_persona = id_persona;
     }
-        
+    
+    
 }
