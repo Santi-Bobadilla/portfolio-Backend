@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,15 +30,21 @@ public class User {
     @Basic
     private String email;
     private String password;
+    private byte verificado;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
     
     public User() {
     }
-
-    public User(Long id, String email, String password) {
+    
+    public User(Long id, String email, String password, byte verificado, Timestamp created_at, Timestamp updated_at) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.verificado = verificado;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
     
     
