@@ -30,14 +30,14 @@ public class Skill {
     @Basic
     private String nombre;
     private Long id_condicion;
-    private int porcentaje;
+    private String porcentaje;
     private int id_tipo_skill;
     private Long id_persona;
 
     public Skill() {
     }
 
-    public Skill(Long id, String nombre, Long id_condicion, int porcentaje, int id_tipo_skill, Long id_persona) {
+    public Skill(Long id, String nombre, Long id_condicion, String porcentaje, int id_tipo_skill, Long id_persona) {
         this.id = id;
         this.nombre = nombre;
         this.id_condicion = id_condicion;
