@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,12 +35,14 @@ public class Proyecto {
     private String fecha_fin;
     private String descripcion;
     private String url_image;
-    private Long id_persona;
-
+    
+    @ManyToOne
+    private Persona persona;
+    
     public Proyecto() {
     }
 
-    public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Long id_persona) {
+    public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.link = link;
@@ -47,7 +50,8 @@ public class Proyecto {
         this.fecha_fin = fecha_fin;
         this.descripcion = descripcion;
         this.url_image = url_image;
-        this.id_persona = id_persona;
+        this.persona = persona;
     }
-        
+
+    
 }
