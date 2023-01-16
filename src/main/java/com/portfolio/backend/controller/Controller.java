@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,11 +19,12 @@ import com.portfolio.backend.service.ISkillService;
 import com.portfolio.backend.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author santi
  */
 @RestController
-
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class Controller {
     
@@ -57,9 +58,9 @@ public class Controller {
         persoServ.borrarPersona(id);
     }
     
-    @PutMapping("/api/editar/{id}")
-    public void editarPersona(@RequestBody Persona pers){
-        persoServ.editarPersona(pers);
+    @PatchMapping("/api/editar/{id}")
+    public void editarPersona(@PathVariable Long id, @RequestBody Persona pers){
+        persoServ.editarPersona(id, pers);
     }
     
     // Usuario
@@ -82,7 +83,7 @@ public class Controller {
         userServ.borrarUsuario(id);
     }
     
-    @PutMapping("/api/editarUser/{id}")
+    @PatchMapping("/api/editarUser/{id}")
     public void editarUsuario(@RequestBody User user){
         userServ.editarUsuario(user);
     }
@@ -107,7 +108,7 @@ public class Controller {
         eduServ.borrarEducacion(id);
     }
 
-    @PutMapping("/api/editarEdu/{id}")
+    @PatchMapping("/api/editarEdu/{id}")
     public void editarEducacion(@RequestBody Educacion edu) {
         eduServ.editarEducacion(edu);
     }    
@@ -133,7 +134,7 @@ public class Controller {
         expServ.borrarExperiencia(id);
     }
 
-    @PutMapping("/api/editarExp/{id}")
+    @PatchMapping("/api/editarExp/{id}")
     public void editarExperiencia(@RequestBody Experiencia exp) {
         expServ.editarExperiencia(exp);
     }
@@ -159,7 +160,7 @@ public class Controller {
         proyServ.borrarProyecto(id);
     }
 
-    @PutMapping("/api/editarProy/{id}")
+    @PatchMapping("/api/editarProy/{id}")
     public void editarProyecto(@RequestBody Proyecto proy) {
         proyServ.editarProyecto(proy);
     }
@@ -185,7 +186,7 @@ public class Controller {
         skillServ.borrarSkill(id);
     }
 
-    @PutMapping("/api/editarSkill/{id}")
+    @PatchMapping("/api/editarSkill/{id}")
     public void editarSkill(@RequestBody Skill skill) {
         skillServ.editarSkill(skill);
     }

@@ -4,11 +4,13 @@
  */
 package com.portfolio.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,22 +31,28 @@ public class Skill {
     private Long id;
     @Basic
     private String nombre;
-    private Long id_condicion;
-    private int porcentaje;
-    private int id_tipo_skill;
-    private Long id_persona;
+    private String porcentaje;
+    
+    @JsonIgnore
+    @ManyToOne
+    private Persona persona;
+    
+//    @JsonIgnore
+    @ManyToOne
+    private TipoSkill tipo_skill;
 
     public Skill() {
     }
 
-    public Skill(Long id, String nombre, Long id_condicion, int porcentaje, int id_tipo_skill, Long id_persona) {
+    public Skill(Long id, String nombre, String porcentaje, Persona persona, TipoSkill tipo_skill) {
         this.id = id;
         this.nombre = nombre;
-        this.id_condicion = id_condicion;
         this.porcentaje = porcentaje;
-        this.id_tipo_skill = id_tipo_skill;
-        this.id_persona = id_persona;
+        this.persona = persona;
+        this.tipo_skill = tipo_skill;
     }
+
+    
     
     
 }
