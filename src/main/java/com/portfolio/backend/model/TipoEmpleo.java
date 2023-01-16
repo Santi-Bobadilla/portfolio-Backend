@@ -10,52 +10,44 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  *
- * @author santi
+ * @author Administrador
  */
+
 @Getter @Setter
 @Entity
-@Table(name="educacion")
-
-public class Educacion {
+@Table(name="tipo_empleo")
+        
+class TipoEmpleo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
     private String nombre;
-    private String fecha_inicio;
-    private String fecha_fin;
-    private String certificacion;
     
     @JsonIgnore
-    @ManyToOne
-    private Persona persona;
-    
-//    @JsonIgnore
-    @ManyToOne
-    private Condicion condicion;
+    @OneToMany
+    @JoinColumn(name = "tipo_empleo_id")
+    private List<Experiencia> experiencia;
 
-    public Educacion() {
+    public TipoEmpleo() {
     }
 
-    public Educacion(Long id, String nombre, String fecha_inicio, String fecha_fin, String certificacion, Persona persona, Condicion condicion) {
+    public TipoEmpleo(Long id, String nombre, List<Experiencia> experiencia) {
         this.id = id;
         this.nombre = nombre;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.certificacion = certificacion;
-        this.persona = persona;
-        this.condicion = condicion;
+        this.experiencia = experiencia;
     }
-
     
-
+    
     
 }
