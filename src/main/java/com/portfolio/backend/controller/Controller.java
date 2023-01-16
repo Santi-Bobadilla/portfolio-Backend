@@ -59,8 +59,8 @@ public class Controller {
     }
     
     @PatchMapping("/api/editar/{id}")
-    public void editarPersona(@RequestBody Persona pers){
-        persoServ.editarPersona(pers);
+    public void editarPersona(@PathVariable Long id, @RequestBody Persona pers){
+        persoServ.editarPersona(id, pers);
     }
     
     // Usuario

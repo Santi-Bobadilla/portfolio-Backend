@@ -36,7 +36,7 @@ public class Provincia {
 //    @OneToMany
 //    @JoinColumn(name = "persona_id")
 //    private List<Persona> persona;
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     private Nacionalidad nacionalidad;
 
