@@ -6,7 +6,7 @@ package com.portfolio.backend.security;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -20,16 +20,28 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{
-        
-        public void addCorsMapping(CorsRegistry registry){
-            registry.addMapping("/**");
-        }
+//        @Override
+//        public void addCorsMapping(CorsRegistry registry){
+//            registry.addMapping("/**");
+//        }
 //	public static void main(String[] args) {
 //		SpringApplication.run(CorsConfig.class, args);
 //	}
 //        
         
-//	@Bean
+	@Bean
+        @Override
+			public void addCorsMappings(CorsRegistry registry) {
+                                registry.addMapping("/api/login")
+                                        .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+                                        .allowedMethods("*")
+                                        .exposedHeaders("*");
+                            
+				registry.addMapping("/api/**")
+                                        .allowedOrigins("*")
+                                        .allowedMethods("*");
+			}
+                        
 //	public WebMvcConfigurer corsConfigurer(){
 //		return new WebMvcConfigurer() {
 //			@Override
