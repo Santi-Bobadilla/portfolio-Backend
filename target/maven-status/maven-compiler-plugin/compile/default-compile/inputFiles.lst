@@ -26,9 +26,9 @@ D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\WebSecur
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\UserRepository.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\EducacionRepository.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\JWTAuthenticationFilter.java
-D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\CorsConfig.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\EducacionService.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\IProyectoService.java
+D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\CorsConfig.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\SkillService.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\ISkillService.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\SkillRepository.java

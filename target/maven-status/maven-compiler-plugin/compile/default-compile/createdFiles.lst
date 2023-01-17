@@ -1,4 +1,5 @@
 com\portfolio\backend\model\Skill.class
+com\portfolio\backend\CorsConfig.class
 com\portfolio\backend\model\User.class
 com\portfolio\backend\repository\PersonaRepository.class
 com\portfolio\backend\repository\UserRepository.class
@@ -11,15 +12,14 @@ com\portfolio\backend\model\Provincia.class
 com\portfolio\backend\service\IProyectoService.class
 com\portfolio\backend\repository\ProyectoRepository.class
 com\portfolio\backend\security\WebSecurityConfig.class
-com\portfolio\backend\security\CorsConfig$1.class
 com\portfolio\backend\security\UserDetailServiceImpl.class
 com\portfolio\backend\model\Persona.class
 com\portfolio\backend\model\Educacion.class
 com\portfolio\backend\repository\EducacionRepository.class
 com\portfolio\backend\service\ExperienciaService.class
 com\portfolio\backend\model\Experiencia.class
+com\portfolio\backend\CorsConfig$1.class
 com\portfolio\backend\model\Condicion.class
-com\portfolio\backend\security\CorsConfig.class
 com\portfolio\backend\service\IPersonaService.class
 com\portfolio\backend\service\IExperienciaService.class
 com\portfolio\backend\service\ISkillService.class
