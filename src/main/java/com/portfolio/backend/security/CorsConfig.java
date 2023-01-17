@@ -20,19 +20,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{
-//        @Override
-//        public void addCorsMapping(CorsRegistry registry){
-//            registry.addMapping("/**");
-//        }
-//	public static void main(String[] args) {
-//		SpringApplication.run(CorsConfig.class, args);
-//	}
-//        
         
-	@Bean
-        @Override
-			public void addCorsMappings(CorsRegistry registry) {
-                                registry.addMapping("/api/login")
+    @Bean
+        public void addCorsMapping(CorsRegistry registry){
+            registry.addMapping("/api/login")
                                         .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
                                         .allowedMethods("*")
                                         .exposedHeaders("*");
@@ -40,8 +31,13 @@ public class CorsConfig implements WebMvcConfigurer{
 				registry.addMapping("/api/**")
                                         .allowedOrigins("*")
                                         .allowedMethods("*");
-			}
-                        
+        }
+        
+
+//        
+        
+//	@Bean
+//             
 //	public WebMvcConfigurer corsConfigurer(){
 //		return new WebMvcConfigurer() {
 //			@Override
