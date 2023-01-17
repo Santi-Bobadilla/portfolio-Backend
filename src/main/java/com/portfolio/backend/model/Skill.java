@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +33,8 @@ public class Skill {
     @Basic
     private String nombre;
     private String porcentaje;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
     @JsonIgnore
     @ManyToOne
@@ -44,13 +47,17 @@ public class Skill {
     public Skill() {
     }
 
-    public Skill(Long id, String nombre, String porcentaje, Persona persona, TipoSkill tipo_skill) {
+    public Skill(Long id, String nombre, String porcentaje, Timestamp created_at, Timestamp updated_at, Persona persona, TipoSkill tipo_skill) {
         this.id = id;
         this.nombre = nombre;
         this.porcentaje = porcentaje;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.persona = persona;
         this.tipo_skill = tipo_skill;
     }
+
+   
 
     
     

@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +34,8 @@ class TipoEmpleo {
     private Long id;
     @Basic
     private String nombre;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
     @JsonIgnore
     @OneToMany
@@ -42,11 +45,15 @@ class TipoEmpleo {
     public TipoEmpleo() {
     }
 
-    public TipoEmpleo(Long id, String nombre, List<Experiencia> experiencia) {
+    public TipoEmpleo(Long id, String nombre, Timestamp created_at, Timestamp updated_at, List<Experiencia> experiencia) {
         this.id = id;
         this.nombre = nombre;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.experiencia = experiencia;
     }
+
+   
     
     
     

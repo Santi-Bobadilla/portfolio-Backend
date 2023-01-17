@@ -1,6 +1,6 @@
-# fly.toml file generated for winter-pond-9576 on 2023-01-16T04:38:55-03:00
+# fly.toml file generated for nameless-pine-7394 on 2023-01-16T07:02:43-03:00
 
-app = "winter-pond-9576"
+app = "nameless-pine-7394"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -22,7 +22,7 @@ processes = []
     type = "connections"
 
   [[services.ports]]
-    force_https = true
+    force_https = false
     handlers = ["http"]
     port = 80
 

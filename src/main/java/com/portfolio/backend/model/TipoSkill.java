@@ -9,10 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.util.List;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +30,8 @@ class TipoSkill {
     private Long id;
     @Basic
     private String nombre;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
 //    @OneToMany
 //    @JoinColumn(name = "tipo_skill_id")
@@ -40,10 +40,13 @@ class TipoSkill {
     public TipoSkill() {
     }
 
-    public TipoSkill(Long id, String nombre) {
+    public TipoSkill(Long id, String nombre, Timestamp created_at, Timestamp updated_at) {
         this.id = id;
         this.nombre = nombre;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
+
 
     
     
