@@ -31,7 +31,7 @@ public class CorsConfig {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
                                 registry.addMapping("/api/login")
-                                        .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com/login")
+                                        .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com/")
                                         .allowedMethods("*")
                                         .exposedHeaders("*");
                             
