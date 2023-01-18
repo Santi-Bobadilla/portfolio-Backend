@@ -21,22 +21,27 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{ 
         
-	@Bean
-             
-	public WebMvcConfigurer corsConfigurer(){
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-                                registry.addMapping("/api/login")
-                                        .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
-                                        .allowedMethods("*")
-                                        .exposedHeaders("*");
-                            
-				registry.addMapping("/api/**")
-                                        .allowedOrigins("*")
-                                        .allowedMethods("*");
-			}
-		};
-	}
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+    }
+    
+//	@Bean
+//             
+//	public WebMvcConfigurer corsConfigurer(){
+//		return new WebMvcConfigurer() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//                                registry.addMapping("/api/login")
+//                                        .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+//                                        .allowedMethods("*")
+//                                        .exposedHeaders("*");
+//                            
+//				registry.addMapping("/api/**")
+//                                        .allowedOrigins("*")
+//                                        .allowedMethods("*");
+//			}
+//		};
+//	}
 
 }
