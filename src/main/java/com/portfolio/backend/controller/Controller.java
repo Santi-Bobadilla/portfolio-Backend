@@ -34,8 +34,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author santi
  */
 @RestController
-@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+@CrossOrigin(origins = "*")
 public class Controller {
     
     // Persona
