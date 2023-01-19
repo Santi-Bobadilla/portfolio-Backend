@@ -31,15 +31,15 @@ public class WebSecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception{
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/api/login");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
         
         return http
                 .cors()
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/login")
-                .permitAll()
+//                .requestMatchers("/api/login")
+//                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -67,7 +67,7 @@ public class Controller {
     @Autowired
     private IUserService userServ;
     
-    @PostMapping("/api/new/user")
+    @PostMapping("/register")
     public void crearUser(@RequestBody User user){
         userServ.crearUsuario(user);
     }
