@@ -19,6 +19,7 @@ import com.portfolio.backend.service.ISkillService;
 import com.portfolio.backend.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,10 +35,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author santi
  */
 @RestController
-//@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+//@CrossOrigin(origins = "*")
 public class Controller {
-    
+    // login 
+//    @PostMapping("/login")
+//    public authenticate(@RequestBody User user){
+//        return "Estoy logueado";
+//    }
     // Persona
     @Autowired
     private IPersonaService persoServ;

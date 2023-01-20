@@ -18,27 +18,32 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{ 
         
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**");
-//    }
-//    
-	@Bean
-             
-	public WebMvcConfigurer corsConfigurer(){
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-                                registry.addMapping("/**")
-                                        .allowedOrigins("*")
-                                        .allowedMethods("*")
-                                        .exposedHeaders("*");
-                            
-				registry.addMapping("/api/**")
-                                        .allowedOrigins("*")
-                                        .allowedMethods("*");
-			}
-		};
-	}
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry
+                .addMapping("/**")
+                .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+                .allowedMethods("*")
+                .exposedHeaders("*");
+                
+    }
+    
+//	@Bean
+//             
+//	public WebMvcConfigurer corsConfigurer(){
+//		return new WebMvcConfigurer() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//                                registry.addMapping("/**")
+//                                        .allowedOrigins("*")
+//                                        .allowedMethods("*")
+//                                        .exposedHeaders("*");
+//                            
+//				registry.addMapping("/api/**")
+//                                        .allowedOrigins("*")
+//                                        .allowedMethods("*");
+//			}
+//		};
+//	}
 
 }
