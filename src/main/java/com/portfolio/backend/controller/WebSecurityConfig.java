@@ -5,8 +5,6 @@
 package com.portfolio.backend.controller;
 
 import com.portfolio.backend.security.JWTAuthenticationFilter;
-import com.portfolio.backend.security.JWTAuthenticationFilter;
-import com.portfolio.backend.security.JWTAuthorizationFilter;
 import com.portfolio.backend.security.JWTAuthorizationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +49,8 @@ public class WebSecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-//                .requestMatchers("/**", "/api/**", "/login", "/portfolio")
-//                .permitAll()
+                .requestMatchers("/**", "/api/**", "/login", "/portfolio")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
