@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,15 +27,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @author santi
  */
 @Configuration
-@AllArgsConstructor
-//@EnableWebSecurity
+//@AllArgsConstructor
+@EnableWebSecurity
 
 public class WebSecurityConfig {
     @Autowired
-    private final UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
     
     @Autowired
-    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+    private JWTAuthorizationFilter jwtAuthorizationFilter;
 //    private final UserDetailsService userDetailsService;
 //    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
@@ -48,15 +49,14 @@ public class WebSecurityConfig {
                 .cors()
                 .and()
                 .csrf().disable()
-//                .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/login")
+                .requestMatchers("/login", "/api/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-//                .httpBasic()
-//                .and()
+                .httpBasic()
+                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
