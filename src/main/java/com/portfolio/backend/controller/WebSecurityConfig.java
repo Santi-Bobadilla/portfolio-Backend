@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.portfolio.backend.security;
+package com.portfolio.backend.controller;
 
+import com.portfolio.backend.security.JWTAuthenticationFilter;
+import com.portfolio.backend.security.JWTAuthenticationFilter;
+import com.portfolio.backend.security.JWTAuthorizationFilter;
+import com.portfolio.backend.security.JWTAuthorizationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -43,17 +47,19 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setFilterProcessesUrl("/login");
         
         return http
+                .cors()
+                .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/**", "/api/**", "/login", "/portfolio")
-                .permitAll()
+//                .requestMatchers("/**", "/api/**", "/login", "/portfolio")
+//                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .cors()
-                .and()
-//                .httpBasic()
+//                .cors()
 //                .and()
+                .httpBasic()
+                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()

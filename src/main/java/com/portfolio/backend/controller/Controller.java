@@ -11,8 +11,6 @@ import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.model.Proyecto;
 import com.portfolio.backend.model.Skill;
 import com.portfolio.backend.model.User;
-import com.portfolio.backend.repository.UserRepository;
-import com.portfolio.backend.security.UserDetailServiceImpl;
 import com.portfolio.backend.service.IEducacionService;
 import com.portfolio.backend.service.IExperienciaService;
 import com.portfolio.backend.service.IPersonaService;
@@ -20,9 +18,7 @@ import com.portfolio.backend.service.IProyectoService;
 import com.portfolio.backend.service.ISkillService;
 import com.portfolio.backend.service.IUserService;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,9 +34,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author santi
  */
 @RestController
-//@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
-//@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.web.app")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://portfolio-arg-prog-1754b.web.app")
+//@CrossOrigin(origins = "*")
 public class Controller {
     
     // Persona
