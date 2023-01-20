@@ -13,7 +13,6 @@ D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\AuthCred
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\Nacionalidad.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\Persona.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\Educacion.java
-D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\controller\WebSecurityConfig.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\IEducacionService.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\PersonaService.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\service\ProyectoService.java
@@ -23,6 +22,7 @@ D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\Experi
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\Experiencia.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\Condicion.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\model\TipoEmpleo.java
+D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\WebSecurityConfig.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\UserRepository.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\repository\EducacionRepository.java
 D:\SANTI\portfolio-Backend\src\main\java\com\portfolio\backend\security\JWTAuthenticationFilter.java

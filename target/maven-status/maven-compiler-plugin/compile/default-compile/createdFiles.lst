@@ -1,6 +1,5 @@
 com\portfolio\backend\model\Skill.class
 com\portfolio\backend\model\User.class
-com\portfolio\backend\controller\WebSecurityConfig.class
 com\portfolio\backend\repository\PersonaRepository.class
 com\portfolio\backend\repository\UserRepository.class
 com\portfolio\backend\security\TokenUtils.class
@@ -11,6 +10,7 @@ com\portfolio\backend\repository\ExperienciaRepository.class
 com\portfolio\backend\model\Provincia.class
 com\portfolio\backend\service\IProyectoService.class
 com\portfolio\backend\repository\ProyectoRepository.class
+com\portfolio\backend\security\WebSecurityConfig.class
 com\portfolio\backend\security\CorsConfig$1.class
 com\portfolio\backend\security\UserDetailServiceImpl.class
 com\portfolio\backend\model\Persona.class
