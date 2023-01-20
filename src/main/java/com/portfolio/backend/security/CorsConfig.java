@@ -22,7 +22,7 @@ public class CorsConfig implements WebMvcConfigurer{
     public void addCorsMappings(CorsRegistry registry) {
         registry
                 .addMapping("/**")
-                .allowedOrigins("https://portfolio-argentina-prog-92fa8.firebaseapp.com")
+                .allowedOrigins("*")
                 .allowedMethods("*")
                 .exposedHeaders("*");
                 

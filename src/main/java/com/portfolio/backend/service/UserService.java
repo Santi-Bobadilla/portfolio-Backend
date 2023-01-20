@@ -6,6 +6,7 @@ package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.User;
 import com.portfolio.backend.repository.UserRepository;
+import com.portfolio.backend.security.UserDetailServiceImpl;
 import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class UserService implements IUserService{
     @Autowired
     private PasswordEncoder bcryptEncoder;
     
+    @Autowired
+    private UserDetailServiceImpl userDetailServiceImpl;
+    
     @Override
     public List<User> verUsuarios() {
         return userRepo.findAll();
@@ -37,7 +41,6 @@ public class UserService implements IUserService{
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
                 newUser.setCreated_at(new Timestamp(System.currentTimeMillis()));
 		userRepo.save(newUser);
-//        userRepo.save(user);
     }
     
     @Override
@@ -52,6 +55,17 @@ public class UserService implements IUserService{
 		editUser.setPassword(bcryptEncoder.encode(user.getPassword()));
                 editUser.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 		userRepo.save(editUser);
+    }
+
+    @Override
+    public void loginUsuario(User user) {
+        User login = userRepo.findById(user.getId()).orElse(null);
+        if (login!= null) {
+            login.getEmail();
+            login.getPassword();
+            userDetailServiceImpl.loadUserByUsername(user.getEmail());
+        } 
+		
     }
     
 }
