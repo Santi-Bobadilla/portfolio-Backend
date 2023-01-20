@@ -4,6 +4,7 @@
  */
 package com.portfolio.backend.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,36 +18,36 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{ 
         
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry
-                .addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .exposedHeaders("*");
-        registry
-                .addMapping("/api/**")
-                .allowedOrigins("*")
-                .allowedMethods("*");
-
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry
+//                .addMapping("/**")
+//                .allowedOrigins("*")
+//                .allowedMethods("*")
+//                .exposedHeaders("*");
+//        registry
+//                .addMapping("/api/**")
+//                .allowedOrigins("*")
+//                .allowedMethods("*");
+//
+//    }
     
-//	@Bean
-//             
-//	public WebMvcConfigurer corsConfigurer(){
-//		return new WebMvcConfigurer() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//                                registry.addMapping("/**")
-//                                        .allowedOrigins("https://portfolio-arg-prog-1754b.web.app")
-//                                        .allowedMethods("*")
-//                                        .exposedHeaders("*");
-//                            
-//				registry.addMapping("/api/**")
-//                                        .allowedOrigins("*")
-//                                        .allowedMethods("*");
-//			}
-//		};
-//	}
+	@Bean
+             
+	public WebMvcConfigurer corsConfigurer(){
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+                                registry.addMapping("/**")
+                                        .allowedOrigins("https://portfolio-arg-prog-1754b.web.app")
+                                        .allowedMethods("*")
+                                        .exposedHeaders("*");
+                            
+				registry.addMapping("/api/**")
+                                        .allowedOrigins("*")
+                                        .allowedMethods("*");
+			}
+		};
+	}
 
 }
