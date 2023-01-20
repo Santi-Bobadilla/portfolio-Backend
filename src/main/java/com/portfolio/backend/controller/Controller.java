@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin(origins = "https://portfolio-arg-prog-1754b.web.app")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 //@CrossOrigin(origins = "*")
 public class Controller {
     
@@ -44,23 +44,23 @@ public class Controller {
     @Autowired
     private IPersonaService persoServ;
     
-    @PostMapping("/new/persona")
+    @PostMapping("/api/new/persona")
     public void crearPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
     }
     
-    @GetMapping("/ver/personas")
+    @GetMapping("/api/ver/personas")
     @ResponseBody
     public List<Persona> verPersonas(){
         return persoServ.verPersonas();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/api/delete/{id}")
     public void borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
     }
     
-    @PatchMapping("/editar/{id}")
+    @PatchMapping("/api/editar/{id}")
     public void editarPersona(@PathVariable Long id, @RequestBody Persona pers){
         persoServ.editarPersona(id, pers);
     }
@@ -82,18 +82,18 @@ public class Controller {
         userServ.crearUsuario(user);
     }
     
-    @GetMapping("/ver/users")
+    @GetMapping("/api/ver/users")
     @ResponseBody
     public List<User> verUsuarios(){
         return userServ.verUsuarios();
     }
     
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/api/deleteUser/{id}")
     public void borrarUsuario(@PathVariable Long id){
         userServ.borrarUsuario(id);
     }
     
-    @PatchMapping("/editarUser/{id}")
+    @PatchMapping("/api/editarUser/{id}")
     public void editarUsuario(@RequestBody User user){
         userServ.editarUsuario(user);
     }
@@ -102,23 +102,23 @@ public class Controller {
     @Autowired
     private IEducacionService eduServ;
     
-    @GetMapping("/ver/edu")
+    @GetMapping("/api/ver/edu")
     @ResponseBody
     public List<Educacion> verEducacion() {
         return eduServ.verEducacion();
     }
     
-    @PostMapping("/new/edu")
+    @PostMapping("/api/new/edu")
     public void crearEducacion(@RequestBody Educacion edu) {
         eduServ.crearEducacion(edu);
     }
     
-    @DeleteMapping("/deleteEdu/{id}")
+    @DeleteMapping("/api/deleteEdu/{id}")
     public void borrarEducacion(@PathVariable Long id) {
         eduServ.borrarEducacion(id);
     }
 
-    @PatchMapping("/editarEdu/{id}")
+    @PatchMapping("/api/editarEdu/{id}")
     public void editarEducacion(@RequestBody Educacion edu) {
         eduServ.editarEducacion(edu);
     }    
@@ -128,23 +128,23 @@ public class Controller {
     @Autowired
     private IExperienciaService expServ;
 
-    @GetMapping("/ver/exp")
+    @GetMapping("/api/ver/exp")
     @ResponseBody
     public List<Experiencia> verExperiencia() {
         return expServ.verExperiencia();
     }
     
-    @PostMapping("/new/exp")
+    @PostMapping("/api/new/exp")
     public void creaExperiencia(@RequestBody Experiencia exp) {
         expServ.creaExperiencia(exp);
     }
 
-    @DeleteMapping("/deleteExp/{id}")
+    @DeleteMapping("/api/deleteExp/{id}")
     public void borrarExperiencia(@PathVariable Long id) {
         expServ.borrarExperiencia(id);
     }
 
-    @PatchMapping("/editarExp/{id}")
+    @PatchMapping("/api/editarExp/{id}")
     public void editarExperiencia(@RequestBody Experiencia exp) {
         expServ.editarExperiencia(exp);
     }
@@ -154,23 +154,23 @@ public class Controller {
     @Autowired
     private IProyectoService proyServ;
 
-    @GetMapping("/ver/proy")
+    @GetMapping("/api/ver/proy")
     @ResponseBody
     public List<Proyecto> verProyecto() {
         return proyServ.verProyecto();
     }
 
-    @PostMapping("/new/proy")
+    @PostMapping("/api/new/proy")
     public void crearProyecto(@RequestBody Proyecto proy) {
         proyServ.crearProyecto(proy);
     }
     
-    @DeleteMapping("/deleteProy/{id}")
+    @DeleteMapping("/api/deleteProy/{id}")
     public void borrarProyecto(@PathVariable Long id) {
         proyServ.borrarProyecto(id);
     }
 
-    @PatchMapping("/editarProy/{id}")
+    @PatchMapping("/api/editarProy/{id}")
     public void editarProyecto(@RequestBody Proyecto proy) {
         proyServ.editarProyecto(proy);
     }
@@ -180,23 +180,23 @@ public class Controller {
     @Autowired
     private ISkillService skillServ;
 
-    @GetMapping("/ver/skill")
+    @GetMapping("/api/ver/skill")
     @ResponseBody
     public List<Skill> verSkill() {
         return skillServ.verSkill();
     }
 
-    @PostMapping("/new/skill")
+    @PostMapping("/api/new/skill")
     public void crearSkill(@RequestBody Skill skill) {
         skillServ.crearSkill(skill);
     }
 
-    @DeleteMapping("/deleteSkill/{id}")
+    @DeleteMapping("/api/deleteSkill/{id}")
     public void borrarSkill(@PathVariable Long id) {
         skillServ.borrarSkill(id);
     }
 
-    @PatchMapping("/editarSkill/{id}")
+    @PatchMapping("/api/editarSkill/{id}")
     public void editarSkill(@RequestBody Skill skill) {
         skillServ.editarSkill(skill);
     }
