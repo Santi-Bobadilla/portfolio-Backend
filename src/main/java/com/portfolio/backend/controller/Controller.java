@@ -39,7 +39,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 //@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.firebaseapp.com")
-@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.web.app")
+//@CrossOrigin(origins = "https://portfolio-argentina-prog-92fa8.web.app")
+@CrossOrigin(origins = "*")
 public class Controller {
     
     // Persona
