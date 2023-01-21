@@ -51,7 +51,7 @@ public class WebSecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.PATCH, "/login", "/api/**")
+                .requestMatchers("/login", "/api/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
