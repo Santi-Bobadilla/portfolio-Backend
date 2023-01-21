@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -50,13 +51,13 @@ public class WebSecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login")
+                .requestMatchers(HttpMethod.PATCH, "/login", "/api/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-//                .httpBasic()
-//                .and()
+                .httpBasic()
+                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -79,14 +80,14 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
     
-     @Bean
-        CorsConfigurationSource corsConfigurationSource() {
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    @Bean
+       CorsConfigurationSource corsConfigurationSource() {
+       final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
-        source.registerCorsConfiguration("/**", corsConfiguration);
+       CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+       source.registerCorsConfiguration("/**", corsConfiguration);
 
-        return source;
+       return source;
     }
     
 }
