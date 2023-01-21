@@ -36,7 +36,7 @@ public class WebSecurityConfig {
     @Autowired
     private final UserDetailsService userDetailsService;
     
-    @Autowired
+//    @Autowired
     private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
     @Bean
