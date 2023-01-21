@@ -43,10 +43,7 @@ public class ProyectoService implements IProyectoService {
     @Override
     public void editarProyecto(Proyecto proy) {
         Proyecto existe = proyRepo.findById(proy.getId()).orElse(null);
-        if (existe!=null) {
-            proyRepo.save(proy);
-        }
-        
+        proyRepo.save(proy);        
     }    
     
 }
