@@ -33,11 +33,11 @@ public class WebSecurityConfig {
     @Autowired
     private final UserDetailsService userDetailsService;
     
-    @Autowired
-    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+//    @Autowired
+//    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
 //    private final UserDetailsService userDetailsService;
-//    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception{
