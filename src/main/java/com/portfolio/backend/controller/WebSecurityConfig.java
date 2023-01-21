@@ -33,17 +33,17 @@ public class WebSecurityConfig {
     @Autowired
     private final UserDetailsService userDetailsService;
     
-//    @Autowired
-//    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+    @Autowired
+    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
 //    private final UserDetailsService userDetailsService;
-    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+//    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception{
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/**");
         
         return http
                 .cors()
