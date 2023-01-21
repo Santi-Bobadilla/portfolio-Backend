@@ -43,10 +43,10 @@ public class CorsConfig implements WebMvcConfigurer{
                                         .allowedMethods("*")
                                         .exposedHeaders("*");
                             
-				registry.addMapping("/api/**")
-                                        .allowedOrigins("*")
-                                        .allowedMethods("*")
-                                        .exposedHeaders("*");
+//				registry.addMapping("/api/**")
+//                                        .allowedOrigins("*")
+//                                        .allowedMethods("*")
+//                                        .exposedHeaders("*");
 			}
 		};
 	}
