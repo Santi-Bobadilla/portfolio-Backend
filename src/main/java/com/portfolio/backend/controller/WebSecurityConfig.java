@@ -30,24 +30,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 
 public class WebSecurityConfig {
-    @Autowired
-    private final UserDetailsService userDetailsService;
+    
+//    private final JWTAuthenticationFilter jwtAuthenticationFilter;
+    private final JWTAuthorizationFilter jwtAuthorizationFilter;
     
 //    @Autowired
-    private final JWTAuthorizationFilter jwtAuthorizationFilter;
+    private final UserDetailsService userDetailsService;
     
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception{
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/api/login");
         
         return http
                 .cors()
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/**")
+                .requestMatchers("/api/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
