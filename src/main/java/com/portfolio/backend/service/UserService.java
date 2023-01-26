@@ -10,6 +10,7 @@ import com.portfolio.backend.security.UserDetailServiceImpl;
 import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -63,8 +64,8 @@ public class UserService implements IUserService{
         if (login!= null) {
             login.getEmail();
             login.getPassword();
-            userDetailServiceImpl.loadUserByUsername(user.getEmail());
-        } 
+            userDetailServiceImpl.loadUserByUsername(user.getEmail());   
+        }
 		
     }
     

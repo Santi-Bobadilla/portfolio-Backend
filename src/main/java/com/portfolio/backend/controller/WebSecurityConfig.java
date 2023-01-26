@@ -7,11 +7,11 @@ package com.portfolio.backend.controller;
 import com.portfolio.backend.security.JWTAuthenticationFilter;
 import com.portfolio.backend.security.JWTAuthorizationFilter;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -28,6 +28,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
+@EnableGlobalAuthentication
+
 
 public class WebSecurityConfig {
     
@@ -76,15 +78,5 @@ public class WebSecurityConfig {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    
-//    @Bean
-//       CorsConfigurationSource corsConfigurationSource() {
-//       final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//
-//       CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
-//       source.registerCorsConfiguration("/**", corsConfiguration);
-//
-//       return source;
-//    }
     
 }

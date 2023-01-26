@@ -22,7 +22,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter{
 
-    @Override
+     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader("Authorization");
         

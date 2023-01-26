@@ -34,14 +34,15 @@ public class CorsConfig implements WebMvcConfigurer{
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
                                 registry.addMapping("/api/login")
-                                        .allowedOrigins("https://portfolio-arg-prog-1754b.web.app")
+//                                        .allowedOrigins("https://portfolio-arg-prog-1754b.web.app")
+                                        .allowedOrigins("http://localhost:4200")
                                         .allowedMethods("*")
                                         .exposedHeaders("*");
                             
 				registry.addMapping("/api/**")
-                                        .allowedOrigins("*")
-                                        .allowedMethods("*")
-                                        .exposedHeaders("*");
+                                        .allowedOrigins("http://localhost:4200")
+                                        .allowedMethods("*");
+//                                        .exposedHeaders("*");
 			}
 		};
 	}

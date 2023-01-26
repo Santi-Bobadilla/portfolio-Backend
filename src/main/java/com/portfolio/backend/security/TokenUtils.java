@@ -10,6 +10,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.util.Collections;
 import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 /**
@@ -18,6 +19,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
  */
 
 public class TokenUtils {
+    
     private final static String ACCESS_TOKEN_SECRET = "ebe046886ff607c0ed81a61ac21138ba";
     private final static Long ACCESS_TOKEN_VALIDATY_SECONDS = 2_592_000L;
     
