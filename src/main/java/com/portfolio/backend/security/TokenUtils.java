@@ -10,14 +10,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.util.Collections;
 import java.util.Date;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author santi
  */
-
+@Service
 public class TokenUtils {
     
     private final static String ACCESS_TOKEN_SECRET = "ebe046886ff607c0ed81a61ac21138ba";
@@ -29,6 +29,7 @@ public class TokenUtils {
         
         return Jwts.builder()
                 .setSubject(email)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(expiratonDate)
                 .signWith(Keys.hmacShaKeyFor(ACCESS_TOKEN_SECRET.getBytes()))
                 .compact();
@@ -49,4 +50,8 @@ public class TokenUtils {
             return null;
         }
     }
+    
+//    public boolean isTokenValid(String token, UserDetails userDetails){
+//        final String username = 
+//    }
 }

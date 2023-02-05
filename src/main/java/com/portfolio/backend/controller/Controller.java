@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.yaml.snakeyaml.events.Event;
 
 /**
  *
@@ -39,9 +40,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 //@CrossOrigin(origins = "https://portfolio-arg-prog-1754b.web.app")
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials="true")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/")
-//@EnableGlobalAuthentication
 
 public class Controller {
     
@@ -175,8 +175,8 @@ public class Controller {
         proyServ.borrarProyecto(id);
     }
 
-    @PatchMapping("editarProy/{id}")
-    public void editarProyecto(@RequestBody Proyecto proy) {
+    @PutMapping("editarProy/{id}")
+    public void editarProyecto(@PathVariable Long id, @RequestBody Proyecto proy) {
         proyServ.editarProyecto(proy);
     }
     

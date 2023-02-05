@@ -28,7 +28,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
-@EnableGlobalAuthentication
+//@EnableGlobalAuthentication
 
 
 public class WebSecurityConfig {
@@ -46,23 +46,23 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setFilterProcessesUrl("/api/login");
         
         return http
-                .cors()
-                .and()
-                .csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/api/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .addFilter(jwtAuthenticationFilter)
-                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+                    .cors()
+                    .and()
+                    .csrf().disable()
+                    .authorizeHttpRequests()
+//                    .requestMatchers("/api/login")
+//                    .permitAll()
+                    .anyRequest()
+                    .authenticated()
+                    .and()
+                    .httpBasic()
+                    .and()
+                    .sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    .and()
+                    .addFilter(jwtAuthenticationFilter)
+                    .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
+                    .build();
     }
         
     @Bean
