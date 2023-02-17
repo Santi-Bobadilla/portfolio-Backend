@@ -29,6 +29,7 @@ public class User {
     private Long id;
     @Basic
     private String email;
+    private String username;
     private String password;
     private byte verificado;
     private Timestamp created_at;
@@ -37,15 +38,18 @@ public class User {
     
     public User() {
     }
-    
-    public User(Long id, String email, String password, byte verificado, Timestamp created_at, Timestamp updated_at) {
+
+    public User(Long id, String email, String username, String password, byte verificado, Timestamp created_at, Timestamp updated_at) {
         this.id = id;
         this.email = email;
+        this.username = username;
         this.password = password;
         this.verificado = verificado;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
+    
+
     
     
     

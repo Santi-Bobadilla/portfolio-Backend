@@ -18,18 +18,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 
-public class UserDetailServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Autowired
-    private UserRepository userRepo;
-
+    private UserRepository userRepository;
+    
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepo
-                .findOneByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("El usuario con email " + email + " no existe."));
-        return new UserDetailsImpl(user);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user=this.userRepository.findByUsername(username);
+        if (user==null) {
+            throw new UsernameNotFoundException("Usuario no encontrado");
+        }
+        return (UserDetails) user;
     }
-
     
 }

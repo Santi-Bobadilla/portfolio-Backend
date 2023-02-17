@@ -6,11 +6,10 @@ package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.User;
 import com.portfolio.backend.repository.UserRepository;
-import com.portfolio.backend.security.UserDetailServiceImpl;
+import com.portfolio.backend.security.UserDetailsServiceImpl;
 import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class UserService implements IUserService{
     private PasswordEncoder bcryptEncoder;
     
     @Autowired
-    private UserDetailServiceImpl userDetailServiceImpl;
+    private UserDetailsServiceImpl userDetailsServiceImpl;
     
     @Override
     public List<User> verUsuarios() {
@@ -64,7 +63,7 @@ public class UserService implements IUserService{
         if (login!= null) {
             login.getEmail();
             login.getPassword();
-            userDetailServiceImpl.loadUserByUsername(user.getEmail());   
+            userDetailsServiceImpl.loadUserByUsername(user.getEmail());
         }
 		
     }
