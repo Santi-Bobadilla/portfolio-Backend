@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +38,8 @@ public class Proyecto {
     private String anio_fin;
     private String descripcion;
     private String url_image;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
     @ManyToOne
     private Persona persona;
@@ -44,7 +47,10 @@ public class Proyecto {
     public Proyecto() {
     }
 
+
     public Proyecto(Long id, String nombre, String link, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, String url_image, Persona persona) {
+
+    public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Timestamp created_at, Timestamp updated_at, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.link = link;
@@ -54,8 +60,9 @@ public class Proyecto {
         this.anio_fin = anio_fin;
         this.descripcion = descripcion;
         this.url_image = url_image;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.persona = persona;
     }
 
-        
 }

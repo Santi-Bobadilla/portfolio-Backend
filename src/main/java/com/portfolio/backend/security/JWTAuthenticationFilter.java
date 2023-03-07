@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -21,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  *
  * @author Administrador
  */
-
+@Slf4j
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
     @Override
@@ -29,6 +30,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         AuthCredencial authCredencials = new AuthCredencial();
         try {
             authCredencials=new ObjectMapper().readValue(request.getReader(), AuthCredencial.class);
+            log.debug("auth",authCredencials);
         } catch (IOException e) {
         }
         UsernamePasswordAuthenticationToken usernamePAT = new UsernamePasswordAuthenticationToken(

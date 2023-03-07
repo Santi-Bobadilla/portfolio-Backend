@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,8 @@ class Nacionalidad {
     private Long id;
     @Basic
     private String nombre;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
     @JsonIgnore
     @OneToMany
@@ -41,11 +44,14 @@ class Nacionalidad {
     public Nacionalidad() {
     }
 
-    public Nacionalidad(Long id, String nombre, List<Provincia> provincia) {
+    public Nacionalidad(Long id, String nombre, Timestamp created_at, Timestamp updated_at, List<Provincia> provincia) {
         this.id = id;
         this.nombre = nombre;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.provincia = provincia;
     }
+
     
     
 }

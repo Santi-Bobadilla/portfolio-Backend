@@ -16,4 +16,5 @@ public interface IUserService {
     public void crearUsuario(User user);
     public void borrarUsuario(Long id);
     public void editarUsuario(User user);
+    public void loginUsuario(User user);
 }

@@ -6,6 +6,7 @@ package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.Proyecto;
 import com.portfolio.backend.repository.ProyectoRepository;
+import com.portfolio.backend.security.JWTAuthorizationFilter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class ProyectoService implements IProyectoService {
     
     @Autowired
     public ProyectoRepository proyRepo;
+    
+    @Autowired
+    public JWTAuthorizationFilter jWTAuthorizationFilter;
 
     @Override
     public List<Proyecto> verProyecto() {
@@ -39,7 +43,7 @@ public class ProyectoService implements IProyectoService {
     @Override
     public void editarProyecto(Proyecto proy) {
         proyRepo.findById(proy.getId()).orElse(null);
-        proyRepo.save(proy);
+        proyRepo.save(proy);        
     }    
     
 }

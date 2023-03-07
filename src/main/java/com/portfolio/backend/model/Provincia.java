@@ -4,17 +4,14 @@
  */
 package com.portfolio.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.util.List;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +29,8 @@ public class Provincia {
     private Long id;
     @Basic
     private String nombre;
+    private Timestamp created_at;
+    private Timestamp updated_at;
 
 //    @OneToMany
 //    @JoinColumn(name = "persona_id")
@@ -43,11 +42,15 @@ public class Provincia {
     public Provincia() {
     }
 
-    public Provincia(Long id, String nombre, Nacionalidad nacionalidad) {
+    public Provincia(Long id, String nombre, Timestamp created_at, Timestamp updated_at, Nacionalidad nacionalidad) {
         this.id = id;
         this.nombre = nombre;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.nacionalidad = nacionalidad;
     }
+
+   
 
     
      

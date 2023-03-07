@@ -4,38 +4,44 @@
  */
 package com.portfolio.backend.security;
 
-import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  *
  * @author Administrador
  */
 
-//@SpringBootApplication
+@EnableWebMvc
 @Configuration
-public class CorsConfig {
-
-	public static void main(String[] args) {
-		SpringApplication.run(CorsConfig.class, args);
-	}
-
+public class CorsConfig implements WebMvcConfigurer{ 
+        
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry
+//                .addMapping("/api/**")
+//                .allowedOrigins("*")
+//                .allowedMethods("*")
+//                .exposedHeaders("*");
+//    }
+    
 	@Bean
-	public WebMvcConfigurer corsConfigurer() {
+             
+	public WebMvcConfigurer corsConfigurer(){
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
                                 registry.addMapping("/api/login")
-                                        .allowedOrigins("http://localhost:4200")
+                                        .allowedOrigins("https://portfolio-arg-prog-1754b.web.app")
                                         .allowedMethods("*")
                                         .exposedHeaders("*");
                             
 				registry.addMapping("/api/**")
                                         .allowedOrigins("*")
-                                        .allowedMethods("*");
+                                        .allowedMethods("*")
+                                        .exposedHeaders("*");
 			}
 		};
 	}

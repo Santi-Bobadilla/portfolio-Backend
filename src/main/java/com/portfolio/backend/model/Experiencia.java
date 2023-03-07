@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,6 +37,8 @@ public class Experiencia {
     private String mes_fin;
     private String anio_fin;
     private String descripcion;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     
 //    @JsonIgnore
     @OneToOne
@@ -48,7 +51,10 @@ public class Experiencia {
     public Experiencia() {
     }
 
+
     public Experiencia(Long id, String nombre, byte es_trabajo_actual, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, Persona persona, TipoEmpleo tipo_empleo) {
+
+    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String fecha_inicio, String fecha_fin, String descripcion, Timestamp created_at, Timestamp updated_at, Persona persona, TipoEmpleo tipo_empleo) {
         this.id = id;
         this.nombre = nombre;
         this.es_trabajo_actual = es_trabajo_actual;
@@ -57,9 +63,10 @@ public class Experiencia {
         this.mes_fin = mes_fin;
         this.anio_fin = anio_fin;
         this.descripcion = descripcion;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.persona = persona;
         this.tipo_empleo = tipo_empleo;
     }
 
-    
 }
