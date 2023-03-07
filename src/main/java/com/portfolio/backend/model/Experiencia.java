@@ -4,7 +4,6 @@
  */
 package com.portfolio.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,11 +31,13 @@ public class Experiencia {
     @Basic
     private String nombre;
     private byte es_trabajo_actual;
-    private String fecha_inicio;
-    private String fecha_fin;
+    private String mes_inicio;
+    private String anio_inicio;
+    private String mes_fin;
+    private String anio_fin;
     private String descripcion;
     
-    @JsonIgnore
+//    @JsonIgnore
     @OneToOne
     private Persona persona;
     
@@ -47,17 +48,18 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String fecha_inicio, String fecha_fin, String descripcion, Persona persona, TipoEmpleo tipo_empleo) {
+    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, Persona persona, TipoEmpleo tipo_empleo) {
         this.id = id;
         this.nombre = nombre;
         this.es_trabajo_actual = es_trabajo_actual;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.mes_inicio = mes_inicio;
+        this.anio_inicio = anio_inicio;
+        this.mes_fin = mes_fin;
+        this.anio_fin = anio_fin;
         this.descripcion = descripcion;
         this.persona = persona;
         this.tipo_empleo = tipo_empleo;
     }
 
-    
     
 }
