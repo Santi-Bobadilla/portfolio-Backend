@@ -49,9 +49,7 @@ public class Educacion {
     public Educacion() {
     }
 
-    public Educacion(Long id, String nombre, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String certificacion, Persona persona, Condicion condicion) {
-
-    public Educacion(Long id, String nombre, String fecha_inicio, String fecha_fin, String certificacion, Timestamp created_at, Timestamp updated_at, Persona persona, Condicion condicion) {
+    public Educacion(Long id, String nombre, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String certificacion, Timestamp created_at, Timestamp updated_at, Persona persona, Condicion condicion) {
         this.id = id;
         this.nombre = nombre;
         this.mes_inicio = mes_inicio;
@@ -64,4 +62,7 @@ public class Educacion {
         this.persona = persona;
         this.condicion = condicion;
     }
+
+
+   
 }

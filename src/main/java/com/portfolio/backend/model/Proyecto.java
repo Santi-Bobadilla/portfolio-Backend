@@ -43,14 +43,11 @@ public class Proyecto {
     
     @ManyToOne
     private Persona persona;
-    
+
     public Proyecto() {
     }
 
-
-    public Proyecto(Long id, String nombre, String link, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, String url_image, Persona persona) {
-
-    public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Timestamp created_at, Timestamp updated_at, Persona persona) {
+    public Proyecto(Long id, String nombre, String link, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, String url_image, Timestamp created_at, Timestamp updated_at, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.link = link;
@@ -64,5 +61,7 @@ public class Proyecto {
         this.updated_at = updated_at;
         this.persona = persona;
     }
+    
+    
 
 }

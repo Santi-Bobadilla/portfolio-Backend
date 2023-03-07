@@ -51,10 +51,7 @@ public class Experiencia {
     public Experiencia() {
     }
 
-
-    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, Persona persona, TipoEmpleo tipo_empleo) {
-
-    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String fecha_inicio, String fecha_fin, String descripcion, Timestamp created_at, Timestamp updated_at, Persona persona, TipoEmpleo tipo_empleo) {
+    public Experiencia(Long id, String nombre, byte es_trabajo_actual, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, Timestamp created_at, Timestamp updated_at, Persona persona, TipoEmpleo tipo_empleo) {
         this.id = id;
         this.nombre = nombre;
         this.es_trabajo_actual = es_trabajo_actual;
@@ -68,5 +65,6 @@ public class Experiencia {
         this.persona = persona;
         this.tipo_empleo = tipo_empleo;
     }
+    
 
 }
