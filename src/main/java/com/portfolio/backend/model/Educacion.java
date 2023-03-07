@@ -4,7 +4,6 @@
  */
 package com.portfolio.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,13 +30,15 @@ public class Educacion {
     private Long id;
     @Basic
     private String nombre;
-    private String fecha_inicio;
-    private String fecha_fin;
+    private String mes_inicio;
+    private String anio_inicio;
+    private String mes_fin;
+    private String anio_fin;
     private String certificacion;
     private Timestamp created_at;
     private Timestamp updated_at;
     
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     private Persona persona;
     
@@ -48,21 +49,19 @@ public class Educacion {
     public Educacion() {
     }
 
+    public Educacion(Long id, String nombre, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String certificacion, Persona persona, Condicion condicion) {
+
     public Educacion(Long id, String nombre, String fecha_inicio, String fecha_fin, String certificacion, Timestamp created_at, Timestamp updated_at, Persona persona, Condicion condicion) {
         this.id = id;
         this.nombre = nombre;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.mes_inicio = mes_inicio;
+        this.anio_inicio = anio_inicio;
+        this.mes_fin = mes_fin;
+        this.anio_fin = anio_fin;
         this.certificacion = certificacion;
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.persona = persona;
         this.condicion = condicion;
     }
-
-    
-
-    
-
-    
 }

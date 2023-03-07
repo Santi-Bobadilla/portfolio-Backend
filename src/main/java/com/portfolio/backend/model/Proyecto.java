@@ -32,8 +32,10 @@ public class Proyecto {
     @Basic
     private String nombre;
     private String link;
-    private String fecha_inicio;
-    private String fecha_fin;
+    private String mes_inicio;
+    private String anio_inicio;
+    private String mes_fin;
+    private String anio_fin;
     private String descripcion;
     private String url_image;
     private Timestamp created_at;
@@ -45,12 +47,17 @@ public class Proyecto {
     public Proyecto() {
     }
 
+
+    public Proyecto(Long id, String nombre, String link, String mes_inicio, String anio_inicio, String mes_fin, String anio_fin, String descripcion, String url_image, Persona persona) {
+
     public Proyecto(Long id, String nombre, String link, String fecha_inicio, String fecha_fin, String descripcion, String url_image, Timestamp created_at, Timestamp updated_at, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.link = link;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.mes_inicio = mes_inicio;
+        this.anio_inicio = anio_inicio;
+        this.mes_fin = mes_fin;
+        this.anio_fin = anio_fin;
         this.descripcion = descripcion;
         this.url_image = url_image;
         this.created_at = created_at;
@@ -58,7 +65,4 @@ public class Proyecto {
         this.persona = persona;
     }
 
-    
-
-    
 }
